@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+    id 'war'
+    id 'application'
+    alias(libs.plugins.spring.boot)
+    alias(libs.plugins.spring.dependency.mgt)
+}
+
+group = 'io.gofannon.application-startup'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = '17'
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation libs.bundles.base
+    implementation libs.bundles.apache.commons
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+wrapper {
+    gradleVersion = '8.4'
+}

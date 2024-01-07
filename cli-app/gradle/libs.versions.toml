@@ -1,0 +1,21 @@
+# implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.14.0'
+
+[versions]
+commons-lang3 = "3.14.0"
+commons-io = "2.15.1"
+jetbrains-annotations = "24.1.0"
+spring-boot = "3.2.1"
+spring-dependency-mgt = "1.1.4"
+
+[libraries]
+commons-lang3 = { module = "org.apache.commons:commons-lang3", version.ref = "commons-lang3" }
+commons-io = { module = "commons-io:commons-io", version.ref = "commons-io" }
+jetbrains-annotations = { module = "org.jetbrains:annotations", version.ref = "jetbrains-annotations" }
+
+[bundles]
+base = ["jetbrains-annotations"]
+apache-commons = ["commons-lang3", "commons-io"]
+
+[plugins]
+spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
+spring-dependency-mgt = { id = "io.spring.dependency-management", version.ref = "spring-dependency-mgt" }
