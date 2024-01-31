@@ -9,6 +9,16 @@ plugins {
 group = 'io.gofannon.application-startup'
 version = '0.0.1-SNAPSHOT'
 
+distributions {
+    boot {
+        distributionBaseName = "some-name-xyz"
+        contents {
+            from 'src/main/dist/README'
+        }
+    }
+}
+
+
 java {
     sourceCompatibility = '17'
     toolchain {
